@@ -7,6 +7,7 @@ use App\Http\Requests\CheckOutVehicleRequest;
 use App\Models\Vehicle;
 use App\Models\VehicleEntry;
 use App\Models\VehicleType;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -67,14 +68,14 @@ class VehicleEntryController extends Controller
 
             $vehicle_entry->save();
 
-            $minutesBetween = $vehicle_entry->check_in_time->diffInMinutes($vehicle_entry->check_out_time);
+            $startDate = Carbon::parse($vehicle_entry->check_in_time);
+            $endDate = Carbon::parse($vehicle_entry->check_out_time);
 
-            if ($vehicle->vehicle_type->id === VehicleType::$RESIDENTE_ID) {
+            $minutesBetween = $endDate->diffInMinutes($startDate);
+
+            if ($vehicle->vehicle_type->id === VehicleType::$RESIDENTE_ID || $vehicle->vehicle_type->pay_on_departure) {
                 $vehicle->increment("accumulated_minutes", $minutesBetween);
-            }
-
-            if ($vehicle->vehicle_type->id === VehicleType::$NO_OFICIAL_ID) {
-
+            }else if ($vehicle->vehicle_type->id === VehicleType::$NO_OFICIAL_ID) {
                 $total_to_pay = $vehicle->vehicle_type->fee * $minutesBetween;
             }
 
@@ -82,6 +83,8 @@ class VehicleEntryController extends Controller
                 "message" => "Vehicle with plate number {$plate_number} has been checked in.",
                 "total_to_pay" => $total_to_pay,
                 "pay_on_departure" => $vehicle->vehicle_type->pay_on_departure,
+                "fee" => $vehicle->vehicle_type->fee,
+                "minutes_between" => $minutesBetween,
             ]);
         });
     }

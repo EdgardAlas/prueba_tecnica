@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('vehicle_types', function (Blueprint $table) {
             $table->id();
             $table->string('vehicle_type');
-            $table->integer('fee');
+            $table->float('fee');
             $table->boolean("pay_on_departure")->default(true);
             $table->boolean("is_default_type")->default(false);
             $table->timestamps();
@@ -29,3 +29,4 @@ return new class extends Migration
         Schema::dropIfExists('vehicle_types');
     }
 };
+
