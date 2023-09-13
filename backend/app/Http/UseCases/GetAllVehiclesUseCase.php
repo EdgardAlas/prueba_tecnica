@@ -19,14 +19,12 @@ class GetAllVehiclesUseCase
             });
         }
 
-        $pagination = $vehicle_query->paginate(10)->through(function ($vehicle){
+        return $vehicle_query->paginate(10)->through(function ($vehicle){
             return [
                 "id" => $vehicle->id,
                 "plate_number" => $vehicle->plate_number,
                 "vehicle_type" => $vehicle->vehicle_type->vehicle_type,
             ];
         });
-
-        return $pagination;
     }
 }
