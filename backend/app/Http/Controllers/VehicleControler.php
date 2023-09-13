@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ChangeVehicleTypeRequest;
-use App\Http\Requests\ValidatePlateNumberBody;
-use App\Http\UseCases\AddOficialVehicleUseCase;
 use App\Http\UseCases\ChangeVehicleTypeUseCase;
 use App\Http\UseCases\GetAllVehiclesUseCase;
 use Illuminate\Http\JsonResponse;
