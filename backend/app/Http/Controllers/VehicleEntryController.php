@@ -20,7 +20,8 @@ class VehicleEntryController extends Controller
         return response()->json($entries);
     }
 
-    public function getPayments(ValidateVehicleTypePayment $request) {
+    public function getPayments(ValidateVehicleTypePayment $request): JsonResponse
+    {
 
         $vehicle_type = $request->route("vehicle_type");
 
