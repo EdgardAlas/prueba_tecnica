@@ -7,7 +7,7 @@
  class GetAllVehicleEntriesUseCase {
 
      public function execute (): LengthAwarePaginator {
-         $entries = VehicleEntry::query()->with("vehicle")->paginate(10)->through(function ($entry){
+         return VehicleEntry::query()->with("vehicle")->paginate(10)->through(function ($entry){
              return [
                  "id" => $entry->id,
                  "plate_number" => $entry->vehicle->plate_number,
@@ -16,7 +16,5 @@
                  "check_out_time" => $entry->check_out_time
              ];
          });
-
-         return $entries;
      }
  }
