@@ -15,8 +15,7 @@ Route::group([
     });
 
     Route::group(["prefix" => "vehicles"], function (){
-        Route::post("/oficial", [VehicleControler::class, "addVehicleToOficial"]);
-        Route::post("/residential", [VehicleControler::class, "addVehicleToResidential"]);
+        Route::patch("/change-vehicle-type/{plate_number}", [VehicleControler::class, "changeVehicleType"]);
         Route::get("/", [VehicleControler::class, "getAllVehicles"]);
     });
 });
