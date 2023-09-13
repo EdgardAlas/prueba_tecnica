@@ -6,16 +6,16 @@ use App\Http\Requests\CheckInVehicleRequest;
 use App\Http\Requests\CheckOutVehicleRequest;
 use App\Http\UseCases\CheckInVehicleUseCase;
 use App\Http\UseCases\CheckOutVehicleUseCase;
+use App\Http\UseCases\GetAllVehicleEntriesUseCase;
 use App\Http\UseCases\StartMonthUseCase;
 use Illuminate\Http\JsonResponse;
 
 class VehicleEntryController extends Controller
 {
+    public function index(GetAllVehicleEntriesUseCase $allVehicleEntriesUseCase): JsonResponse {
+        $entries = $allVehicleEntriesUseCase->execute();
 
-    public function pong (): JsonResponse {
-        return response()->json([
-            "message" => "pong"
-        ]);
+        return response()->json($entries);
     }
 
     public function checkInVehicle (CheckInVehicleRequest $request, CheckInVehicleUseCase $checkInVehicleUseCase): JsonResponse {

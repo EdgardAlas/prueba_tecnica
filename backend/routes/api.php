@@ -9,7 +9,7 @@ Route::group([
 ], function () {
 
     Route::group(["prefix" => "vehicle-entry"], function(){
-        Route::get("/ping", [VehicleEntryController::class, "pong"]);
+        Route::get("/", [VehicleEntryController::class, "index"]);
         Route::post("/check-in", [VehicleEntryController::class, "checkInVehicle"]);
         Route::post("/start-month", [VehicleEntryController::class, "startMonth"]);
         Route::patch("/check-out/{plate_number}", [VehicleEntryController::class, "checkOutVehicle"]);
