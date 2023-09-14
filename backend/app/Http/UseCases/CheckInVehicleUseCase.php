@@ -16,6 +16,7 @@ class CheckInVehicleUseCase
 
         VehicleEntry::query()->create([
             "vehicle_id" => $vehicle->id,
+            'vehicle_type_id' => $vehicle->vehicle_type_id,
             "check_in_time" => now(),
         ]);
     }

@@ -13,12 +13,12 @@ class CheckOutVehicleUseCase
     public function execute(string $plate_number): array
     {
 
-        $vehicle_entry = VehicleEntry::query()->with([
-            "vehicle" => function ($query) use ($plate_number) {
+        $vehicle_entry = VehicleEntry::query()
+            ->with("vehicle")
+            ->whereHas("vehicle", function ($query) use ($plate_number) {
                 $query->where("plate_number", $plate_number);
-            }
-        ])->whereNull("check_out_time")->first();
-
+            })
+            ->whereNull("check_out_time")->first();
 
         return DB::transaction(function () use ($vehicle_entry, $plate_number, &$total_to_pay) {
             $vehicle = $vehicle_entry->vehicle;

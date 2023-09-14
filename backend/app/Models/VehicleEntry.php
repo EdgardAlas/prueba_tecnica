@@ -13,10 +13,15 @@ class VehicleEntry extends Model
         'vehicle_id',
         'check_in_time',
         'check_out_time',
+        "vehicle_type_id"
     ];
 
     public function vehicle () {
         return $this->belongsTo(Vehicle::class);
+    }
+
+    public function vehicle_type () {
+        return $this->belongsTo(VehicleType::class);
     }
 
 }

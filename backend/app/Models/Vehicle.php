@@ -11,7 +11,7 @@ class Vehicle extends Model
 
     protected $fillable = [
         "vehicle_type_id",
-        "plate_number",
+    "plate_number",
         "accumulated_minutes",
     ];
 

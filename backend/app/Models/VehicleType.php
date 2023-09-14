@@ -19,6 +19,10 @@ class VehicleType extends Model
         return $this->hasMany(Vehicle::class);
     }
 
+    public function vehicle_entries () {
+        return $this->hasMany(VehicleEntry::class);
+    }
+
     public static $RESIDENTE_ID = 1;
     public static $OFICIAL_ID = 2;
     public static $NO_OFICIAL_ID = 3;
