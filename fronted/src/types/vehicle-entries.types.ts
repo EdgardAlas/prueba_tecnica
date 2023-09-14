@@ -9,3 +9,11 @@ export interface VehicleEntry {
 }
 
 export type VehicleEnties = PaginationResponse<VehicleEntry>;
+
+export interface CheckOutResponse {
+  message: string;
+  total_to_pay: number;
+  pay_on_departure: number;
+  fee: number;
+  minutes_between: number;
+}

@@ -2,6 +2,8 @@ import { useCallback, useState } from 'react';
 import { api } from '../../../config/api';
 import { notifications } from '@mantine/notifications';
 import { useVehicleEntries } from './useVehicleEntries';
+import { modals } from '@mantine/modals';
+import { CheckOutResponse } from '../../../types/vehicle-entries.types';
 
 export const useVehicleCheckInOut = () => {
   const [loading, setLoading] = useState(false);
@@ -38,12 +40,29 @@ export const useVehicleCheckInOut = () => {
     return async () => {
       try {
         setLoading(true);
-        await api.patch(`/vehicle-entry/check-out/${plate_number}`);
+        const data = await api.patch<CheckOutResponse>(
+          `/vehicle-entry/check-out/${plate_number}`
+        );
         notifications.show({
           title: 'Registro de entrada',
           message: 'Se ha registrado la salida del vehiculo',
           color: 'teal',
         });
+
+        console.log(data.data);
+
+        if (data.data.pay_on_departure) {
+          console.log(data.data.total_to_pay);
+          modals.openConfirmModal({
+            title: 'Total a pagar',
+            children: <>El total a pagar es de ${data.data.total_to_pay}</>,
+            labels: {
+              cancel: 'Cancelar',
+              confirm: 'Confirmar',
+            },
+          });
+        }
+
         getAllEntries();
       } catch (error) {
         notifications.show({

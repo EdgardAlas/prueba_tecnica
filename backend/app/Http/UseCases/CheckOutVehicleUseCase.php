@@ -15,6 +15,7 @@ class CheckOutVehicleUseCase
 
         $vehicle_entry = VehicleEntry::query()
             ->with("vehicle")
+            ->with("vehicle_type")
             ->whereHas("vehicle", function ($query) use ($plate_number) {
                 $query->where("plate_number", $plate_number);
             })
@@ -32,7 +33,7 @@ class CheckOutVehicleUseCase
             return [
                 "message" => "Vehicle with plate number {$plate_number} has been checked in.",
                 "total_to_pay" => $total_to_pay["total_to_pay"],
-                "pay_on_departure" => $vehicle->vehicle_type->pay_on_departure,
+                "pay_on_departure" => $vehicle_entry->vehicle_type->pay_on_departure,
                 "fee" => $vehicle->vehicle_type->fee,
                 "minutes_between" => $total_to_pay["minutes_between"],
             ];
