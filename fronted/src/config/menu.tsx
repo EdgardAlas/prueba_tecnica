@@ -2,6 +2,7 @@ import { BsArrowBarUp } from 'react-icons/bs';
 import { MenuItems } from '../types/menu.types';
 import { BiMoneyWithdraw } from 'react-icons/bi';
 import { MdOutlineCalendarMonth } from 'react-icons/md';
+import { AiFillCar } from 'react-icons/ai';
 
 export const menu: MenuItems = [
   {
@@ -28,6 +29,11 @@ export const menu: MenuItems = [
     icon: BiMoneyWithdraw,
     label: 'Pago de residentes',
     to: '/residential-payments',
+  },
+  {
+    icon: AiFillCar,
+    label: 'Tipo de vehiculos',
+    to: '/vehicle-types',
   },
   {
     icon: MdOutlineCalendarMonth,

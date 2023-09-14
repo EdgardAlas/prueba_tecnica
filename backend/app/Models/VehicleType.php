@@ -13,6 +13,7 @@ class VehicleType extends Model
         'vehicle_type',
         'fee',
         'pay_on_departure',
+        "is_default_type"
     ];
 
     public function vehicles () {

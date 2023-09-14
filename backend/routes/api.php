@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\VehicleEntryController;
 use \App\Http\Controllers\VehicleControler;
+use \App\Http\Controllers\VehicleTypeController;
 
 Route::group([
     "middleware" => "api",
@@ -21,5 +22,12 @@ Route::group([
     Route::group(["prefix" => "vehicles"], function (){
         Route::get("/", [VehicleControler::class, "getAllVehicles"]);
         Route::patch("/change-vehicle-type/{plate_number}", [VehicleControler::class, "changeVehicleType"]);
+    });
+
+    Route::group(["prefix"=>"vehicle-types"], function(){
+        Route::get("/", [VehicleTypeController::class, "index"]);
+        Route::post("/", [VehicleTypeController::class, "create"]);
+        Route::put("/{vehicle_type}", [VehicleTypeController::class, "update"]);
+        Route::delete("/{vehicle_type}", [VehicleTypeController::class, "delete"]);
     });
 });
