@@ -1,10 +1,12 @@
-import { MantineProvider } from '@mantine/core';
+import { MantineProvider, Box } from '@mantine/core';
 import { Outlet } from 'react-router-dom';
 
 export const Layout = () => {
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS>
-      <Outlet />
+      <Box component='main' p={'xl'}>
+        <Outlet />
+      </Box>
     </MantineProvider>
   );
 };
