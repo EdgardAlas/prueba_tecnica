@@ -1,6 +1,7 @@
 import { BsArrowBarUp } from 'react-icons/bs';
 import { MenuItems } from '../types/menu.types';
 import { BiMoneyWithdraw } from 'react-icons/bi';
+import { MdOutlineCalendarMonth } from 'react-icons/md';
 
 export const menu: MenuItems = [
   {
@@ -27,5 +28,10 @@ export const menu: MenuItems = [
     icon: BiMoneyWithdraw,
     label: 'Pago de residentes',
     to: '/residential-payments',
+  },
+  {
+    icon: MdOutlineCalendarMonth,
+    label: 'Iniciar mes',
+    to: '/start-month',
   },
 ];

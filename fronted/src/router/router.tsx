@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/HomePage';
 import { NotFoundPage } from '../pages/not-found';
 import { AddResidentialVehiclesPage } from '../pages/residential/AddResidentialVehiclesPage';
 import { GetPaymentsPage } from '../pages/get-payments/get-payments-page';
+import { StartMonthPage } from '../pages/start-month/start-month-page';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ export const router = createBrowserRouter(
       <Route path='residential' element={<AddResidentialVehiclesPage />} />
       <Route path='change-vehicle-types' element={<ChangeVehicleTypesPage />} />
       <Route path='residential-payments' element={<GetPaymentsPage />} />
+      <Route path='start-month' element={<StartMonthPage />} />
       <Route path='*' element={<NotFoundPage />} />
     </Route>
   )
