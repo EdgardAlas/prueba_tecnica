@@ -1,17 +1,42 @@
-import { Button, Flex, TextInput } from '@mantine/core';
-import { useState } from 'react';
+import { Button, Flex, Select, TextInput } from '@mantine/core';
+import { useEffect, useState } from 'react';
 import { config } from '../../config/config';
+import { api } from '../../config/api';
+import { useForm } from '@mantine/form';
 
 export const GetPaymentsPage = () => {
-  const [fileName, setFileName] = useState('');
+  const [vehicleTypes, setVehicleTypes] = useState<
+    {
+      label: string;
+      value: string;
+    }[]
+  >([]);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFileName(event.target.value);
-  };
+  useEffect(() => {
+    api.get('/vehicle-entry/payment/to-select').then((response) => {
+      setVehicleTypes(response.data);
+    });
+  }, []);
+
+  const form = useForm({
+    initialValues: {
+      vehicleType: '',
+      filename: '',
+    },
+  });
 
   return (
     <div>
       <Flex align={'end'} gap={'xl'}>
+        <Select
+          size='xl'
+          data={vehicleTypes}
+          label='Tipo de vehiculo'
+          searchable
+          nothingFound={'No se encontraron resultados'}
+          defaultValue={config.residental as unknown as string}
+          {...form.getInputProps('vehicleType')}
+        />
         <TextInput
           label='Nombre del archivo'
           placeholder='Nombre del archivo'
@@ -19,13 +44,15 @@ export const GetPaymentsPage = () => {
           sx={{
             flex: 1,
           }}
-          onChange={handleInputChange}
+          {...form.getInputProps('filename')}
         />
         <Button
           component='a'
           download
           href={
-            config.apiUrl + '/vehicle-entry/payments/1/?filename=' + fileName
+            config.apiUrl +
+            `/vehicle-entry/payments/${form.values.vehicleType}/?filename=` +
+            form.values.filename
           }
           size='xl'
         >

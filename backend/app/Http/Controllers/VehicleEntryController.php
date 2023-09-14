@@ -8,6 +8,7 @@ use App\Http\Requests\ValidateVehicleTypePayment;
 use App\Http\UseCases\CheckInVehicleUseCase;
 use App\Http\UseCases\CheckOutVehicleUseCase;
 use App\Http\UseCases\GetAllVehicleEntriesUseCase;
+use App\Http\UseCases\GetAllVehicleTypesPaymentUsecase;
 use App\Http\UseCases\GetAllVehicleTypesUseCase;
 use App\Http\UseCases\GetPaymentsByVehicleTypeUseCase;
 use App\Http\UseCases\StartMonthUseCase;
@@ -25,6 +26,12 @@ class VehicleEntryController extends Controller
         $vehicle_types = $getAllVehicleTypesUseCase->execute();
 
         return response()->json($vehicle_types);
+    }
+
+    public function getVehicleTypeForPaymentSelect(GetAllVehicleTypesPaymentUsecase $getPaymentsByVehicleTypeUseCase): JsonResponse {
+        $payments = $getPaymentsByVehicleTypeUseCase->execute();
+
+        return response()->json($payments);
     }
 
     public function getPayments(ValidateVehicleTypePayment $request, GetPaymentsByVehicleTypeUseCase $getPaymentsByVehicleTypeUseCase): \Illuminate\Http\Response
