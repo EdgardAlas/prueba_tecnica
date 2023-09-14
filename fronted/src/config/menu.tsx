@@ -8,6 +8,11 @@ export const menu: MenuItems = [
     to: '/',
   },
   {
+    icon: BsArrowBarUp,
+    label: 'Dar de alta vehiculos oficiales',
+    to: '/',
+  },
+  {
     icon: BsArrowBarDown,
     label: 'Tipo de vehiculos',
     to: '/',

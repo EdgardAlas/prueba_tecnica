@@ -3,7 +3,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
-import { HomePage } from '../pages/home';
+import { HomePage } from '../pages/home/HomePage';
 import { NotFoundPage } from '../pages/not-found';
 import { Layout } from '../components/layout/layout';
 
