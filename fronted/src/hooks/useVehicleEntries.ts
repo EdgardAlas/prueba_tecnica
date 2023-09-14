@@ -8,10 +8,14 @@ export const useVehicleEntries = () => {
   const [vehicleEntries, setVehicleEntries] =
     useState<VehicleEnties>(EmptyPagination);
 
-  const getAllEntries = useCallback(async () => {
+  const getAllEntries = useCallback(async (page = 1) => {
     try {
       setLoading(true);
-      const { data } = await api.get<VehicleEnties>('/vehicle-entry');
+      const { data } = await api.get<VehicleEnties>('/vehicle-entry', {
+        params: {
+          page,
+        },
+      });
       setVehicleEntries(data);
     } catch (error) {
       setVehicleEntries(EmptyPagination);

@@ -3,9 +3,9 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
-import { Layout } from '../components/Layout';
 import { HomePage } from '../pages/home';
 import { NotFoundPage } from '../pages/not-found';
+import { Layout } from '../components/layout/layout';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
