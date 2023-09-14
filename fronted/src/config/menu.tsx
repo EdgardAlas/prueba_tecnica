@@ -10,7 +10,7 @@ export const menu: MenuItems = [
   {
     icon: BsArrowBarUp,
     label: 'Dar de alta vehiculos oficiales',
-    to: '/',
+    to: '/oficial',
   },
   {
     icon: BsArrowBarDown,
