@@ -23,7 +23,7 @@ class GetAllVehiclesUseCase
             return [
                 "id" => $vehicle->id,
                 "plate_number" => $vehicle->plate_number,
-                "vehicle_type" => $vehicle->vehicle_type->vehicle_type_history,
+                "vehicle_type" => $vehicle->vehicle_type->vehicle_type,
             ];
         });
     }

@@ -24,8 +24,8 @@ export const ChangeVehicleTypeForm = () => {
       z.object({
         plate: z.string().min(1, { message: 'La placa es requerida' }),
         vehicleType: z
-          .string()
-          .min(1, { message: 'El tipo de vehiculo es requerido' }),
+          .number()
+          .positive({ message: 'El tipo de vehiculo es requerido' }),
       })
     ),
   });
