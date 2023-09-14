@@ -9,6 +9,7 @@ Route::group([
 ], function () {
 
     Route::group(["prefix" => "vehicle-entry"], function(){
+        Route::get("/to-select", [VehicleEntryController::class, "getVehiclesToSelect"]);
         Route::get("/", [VehicleEntryController::class, "index"]);
         Route::get("/payments/{vehicle_type}", [VehicleEntryController::class, "getPayments"]);
         Route::post("/check-in", [VehicleEntryController::class, "checkInVehicle"]);
