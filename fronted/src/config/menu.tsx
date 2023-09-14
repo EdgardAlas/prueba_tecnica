@@ -1,5 +1,6 @@
 import { BsArrowBarUp } from 'react-icons/bs';
 import { MenuItems } from '../types/menu.types';
+import { BiMoneyWithdraw } from 'react-icons/bi';
 
 export const menu: MenuItems = [
   {
@@ -21,5 +22,10 @@ export const menu: MenuItems = [
     icon: BsArrowBarUp,
     label: 'Dar de alta vehiclos (general)',
     to: '/change-vehicle-types',
+  },
+  {
+    icon: BiMoneyWithdraw,
+    label: 'Pago de residentes',
+    to: '/residential-payments',
   },
 ];
