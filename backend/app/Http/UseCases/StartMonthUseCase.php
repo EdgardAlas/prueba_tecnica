@@ -15,9 +15,17 @@ class StartMonthUseCase
             Vehicle::query()->update([
                 "accumulated_minutes" => 0
             ]);
-            VehicleEntry::query()->whereHas("vehicle", function($query){
-                $query->where("vehicle_type_id", VehicleType::$OFICIAL_ID);
-            })->delete();
+
+
+            $existsVehicleCheckIn = VehicleEntry::query()
+                ->whereNull("check_out_time")
+                ->exists();
+
+            if($existsVehicleCheckIn){
+                throw new \Exception("There are vehicles that have not checked out yet.");
+            }
+
+            VehicleEntry::query()->delete();
 
         });
     }
