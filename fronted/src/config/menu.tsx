@@ -13,8 +13,8 @@ export const menu: MenuItems = [
     to: '/oficial',
   },
   {
-    icon: BsArrowBarDown,
-    label: 'Tipo de vehiculos',
-    to: '/',
+    icon: BsArrowBarUp,
+    label: 'Dar de alta vehiculos residentes',
+    to: '/residential',
   },
 ];
