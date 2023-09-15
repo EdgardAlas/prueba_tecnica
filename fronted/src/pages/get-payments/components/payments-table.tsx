@@ -9,7 +9,7 @@ export const PaymentsTabel = () => {
   return (
     <>
       <Table striped highlightOnHover withBorder captionSide='top'>
-        <caption>Vehiculos</caption>
+        <caption>Pagos</caption>
         <thead>
           <tr>
             <th>No. Placa</th>
@@ -28,7 +28,9 @@ export const PaymentsTabel = () => {
           {payments.data?.length === 0 ? (
             <tr>
               <td colSpan={3}>
-                <Text align='center'>No hay vehiculos estacionados</Text>
+                <Text align='center'>
+                  No hay pagos registrados para este tipo de vehiculo
+                </Text>
               </td>
             </tr>
           ) : null}

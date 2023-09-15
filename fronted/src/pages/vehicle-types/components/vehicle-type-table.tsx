@@ -81,8 +81,10 @@ export const VehicleTypesTable = () => {
             ))}
             {vehiclesTypes.data?.length === 0 ? (
               <tr>
-                <td colSpan={3}>
-                  <Text align='center'>No hay vehiculos estacionados</Text>
+                <td colSpan={5}>
+                  <Text align='center'>
+                    No hay tipos de vehiculos registrados
+                  </Text>
                 </td>
               </tr>
             ) : null}
