@@ -14,7 +14,7 @@ export const OficialVehicleEntries = () => {
   return (
     <>
       <Table striped highlightOnHover withBorder captionSide='top'>
-        <caption>Tipos de vehiculos</caption>
+        <caption>Vehiculos oficiales que entraron en el mes</caption>
         <thead>
           <tr>
             <th>Placa</th>
