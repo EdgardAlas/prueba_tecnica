@@ -22,7 +22,7 @@ export const menu: MenuItems = [
   },
   {
     icon: BsArrowBarUp,
-    label: 'Dar de alta vehiclos (general)',
+    label: 'Dar de alta vehiculos (general)',
     to: '/change-vehicle-types',
   },
   {
