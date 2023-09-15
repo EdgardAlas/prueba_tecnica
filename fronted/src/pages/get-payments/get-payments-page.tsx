@@ -1,74 +1,15 @@
-import { Button, Flex, Select, TextInput } from '@mantine/core';
-import { useEffect, useState } from 'react';
-import { config } from '../../config/config';
-import { api } from '../../config/api';
-import { useForm } from '@mantine/form';
+import { Flex } from '@mantine/core';
+import { GetPaymentForm } from './components/get-payment-form';
+import { PaymentsTabel } from './components/payments-table';
+import { GetPaymentsProvider } from './context/get-payments-context-context';
 
 export const GetPaymentsPage = () => {
-  const [vehicleTypes, setVehicleTypes] = useState<
-    {
-      label: string;
-      value: string;
-    }[]
-  >([]);
-
-  useEffect(() => {
-    api.get('/vehicle-entry/payment/to-select').then((response) => {
-      setVehicleTypes(response.data);
-    });
-  }, []);
-
-  const form = useForm({
-    initialValues: {
-      vehicleType: '',
-      filename: '',
-    },
-  });
-
   return (
-    <div>
-      <Flex
-        align={{
-          base: 'stretch',
-          md: 'end',
-        }}
-        gap={'xl'}
-        direction={{
-          base: 'column',
-          md: 'row',
-        }}
-      >
-        <Select
-          size='xl'
-          data={vehicleTypes}
-          label='Tipo de vehiculo'
-          searchable
-          nothingFound={'No se encontraron resultados'}
-          defaultValue={config.residental as unknown as string}
-          {...form.getInputProps('vehicleType')}
-        />
-        <TextInput
-          label='Nombre del archivo'
-          placeholder='Nombre del archivo'
-          size='xl'
-          sx={{
-            flex: 1,
-          }}
-          {...form.getInputProps('filename')}
-        />
-        <Button
-          component='a'
-          download
-          href={
-            config.apiUrl +
-            `/vehicle-entry/payments/${form.values.vehicleType}/?filename=` +
-            form.values.filename
-          }
-          size='xl'
-        >
-          Descargar pagos
-        </Button>
+    <GetPaymentsProvider>
+      <Flex gap={'2rem'} direction={'column'}>
+        <GetPaymentForm />
+        <PaymentsTabel />
       </Flex>
-    </div>
+    </GetPaymentsProvider>
   );
 };

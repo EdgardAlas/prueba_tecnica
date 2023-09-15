@@ -13,9 +13,10 @@ Route::group([
         Route::get("/to-select", [VehicleEntryController::class, "getVehiclesToSelect"]);
         Route::get("/payment/to-select", [VehicleEntryController::class, "getVehicleTypeForPaymentSelect"]);
         Route::get("/oficial", [VehicleEntryController::class, "getOficialVehicleEntries"]);
+        Route::get("/payments/{vehicle_type}", [VehicleEntryController::class, "getPayments"]);
+        Route::get("/payments/list/{vehicle_type}", [VehicleEntryController::class, "getPaymentsList"]);
         Route::get("/", [VehicleEntryController::class, "index"]);
         Route::patch("/check-out/{plate_number}", [VehicleEntryController::class, "checkOutVehicle"]);
-        Route::get("/payments/{vehicle_type}", [VehicleEntryController::class, "getPayments"]);
         Route::post("/check-in", [VehicleEntryController::class, "checkInVehicle"]);
         Route::post("/start-month", [VehicleEntryController::class, "startMonth"]);
     });

@@ -11,6 +11,7 @@ use App\Http\UseCases\GetAllOficialEntriesUseCase;
 use App\Http\UseCases\GetAllVehicleEntriesUseCase;
 use App\Http\UseCases\GetAllVehicleTypesPaymentUsecase;
 use App\Http\UseCases\GetAllVehicleTypesUseCase;
+use App\Http\UseCases\GetPaymentsByVehicleListUseCase;
 use App\Http\UseCases\GetPaymentsByVehicleTypeUseCase;
 use App\Http\UseCases\StartMonthUseCase;
 use App\Models\VehicleEntry;
@@ -56,6 +57,12 @@ class VehicleEntryController extends Controller
         ]);
 
         return $pdf->download("{$filename}.pdf");
+    }
+
+    public function getPaymentsList(VehicleType $vehicle_type, GetPaymentsByVehicleListUseCase $getPaymentsByVehicleTypeUseCase): JsonResponse
+    {
+        $report = $getPaymentsByVehicleTypeUseCase->execute($vehicle_type->id);
+        return response()->json($report);
     }
 
     public function checkInVehicle (CheckInVehicleRequest $request, CheckInVehicleUseCase $checkInVehicleUseCase): JsonResponse {
