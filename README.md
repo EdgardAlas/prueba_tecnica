@@ -2,7 +2,7 @@
 
 ## Ejecución del proyecto
 
-El proyecto se puede ejecutar sin ninguna configuracion previa, solamente usando el comando
+El proyecto se puede ejecutar sin ninguna configuracion previa, solamente usando el comando, tampoco es necesario instalar ninguna dependencia ya que se usa docker para ejecutar el proyecto.
 
 ```bash
 docker compose up
