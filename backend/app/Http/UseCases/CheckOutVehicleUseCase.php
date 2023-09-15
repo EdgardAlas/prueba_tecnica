@@ -48,10 +48,10 @@ class CheckOutVehicleUseCase
 
         $minutesBetween = $endDate->diffInMinutes($startDate);
 
-        if ($vehicle->vehicle_type->id === VehicleType::$RESIDENTE_ID || $vehicle->vehicle_type->pay_on_departure) {
+        if ($vehicle->vehicle_type->id === VehicleType::$RESIDENTE_ID) {
             $vehicle->increment("accumulated_minutes", $minutesBetween);
-        }else if ($vehicle->vehicle_type->id === VehicleType::$NO_OFICIAL_ID) {
-            $total_to_pay = $vehicle->vehicle_type->fee * $minutesBetween;
+        }else if ($vehicle->vehicle_type->id === VehicleType::$NO_OFICIAL_ID || $vehicle->vehicle_type->pay_on_departure) {
+            $total_to_pay = $vehicle_entry->vehicle_type->fee * $minutesBetween;
         }
 
         return [
