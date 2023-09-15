@@ -1,0 +1,48 @@
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    # ports:
+    #   - 3306:3306
+    volumes:
+      - database:/var/lib/mysql
+  laravel:
+    build:
+      context: .
+      dockerfile: Dockerfile.laravel
+    depends_on:
+      - db
+    ports:
+      - 8000:8000
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_DATABASE: db
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      DB_PORT: 3306
+      APP_ENV: local
+  react:
+    build:
+      context: .
+      dockerfile: Dockerfile.react
+    # ports:
+    #   - 3000:3000
+    depends_on:
+      - laravel
+  nginx:
+    image: nginx
+    restart: always
+    depends_on:
+      - react
+      - laravel
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+volumes:
+  database:

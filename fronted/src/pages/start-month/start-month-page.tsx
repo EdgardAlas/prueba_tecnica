@@ -1,7 +1,8 @@
-import { Button } from '@mantine/core';
-import { api } from '../../config/api';
-import { useNavigate } from 'react-router-dom';
+import { Button, Flex } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
+import { useNavigate } from 'react-router-dom';
+import { api } from '../../config/api';
+import { OficialVehicleEntries } from './components/oficial-vehicles-entries';
 
 export const StartMonthPage = () => {
   const navigate = useNavigate();
@@ -28,10 +29,14 @@ export const StartMonthPage = () => {
   };
 
   return (
-    <div>
-      <Button onClick={handleStartMonth} size='xl'>
-        Iniciar mes
-      </Button>
-    </div>
+    <Flex gap={'2rem'} direction={'column'}>
+      <div>
+        <Button onClick={handleStartMonth} size='xl'>
+          Iniciar mes
+        </Button>
+      </div>
+
+      <OficialVehicleEntries />
+    </Flex>
   );
 };
