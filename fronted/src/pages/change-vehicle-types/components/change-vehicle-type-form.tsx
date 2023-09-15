@@ -37,7 +37,7 @@ export const ChangeVehicleTypeForm = () => {
   }, []);
 
   return (
-    <form onSubmit={form.onSubmit(changeVehicleType)}>
+    <form onSubmit={form.onSubmit(changeVehicleType(() => form.reset()))}>
       <Grid m={0}>
         <Grid.Col md={4} m={0}>
           <TextInput

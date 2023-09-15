@@ -58,6 +58,7 @@ export const GenericChangeVehicleType = ({
           color: 'teal',
         });
         getVehicles();
+        setPlateNumber('');
       })
       .catch(() => {
         notifications.show({
@@ -104,7 +105,7 @@ export const GenericChangeVehicleType = ({
           }}
           placeholder={'Ingrese la placa del vehiculo'}
           size='xl'
-          defaultValue={plateNumber}
+          value={plateNumber}
           onChange={handlePlateNumberChange}
         />
 

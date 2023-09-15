@@ -18,7 +18,7 @@ export const PlateNumberForm = () => {
         label={'Placa'}
         placeholder={'Ingrese la placa del vehiculo'}
         size='xl'
-        defaultValue={plateNumber}
+        value={plateNumber}
         onChange={handlePlateNumberChange}
       />
 
@@ -30,10 +30,20 @@ export const PlateNumberForm = () => {
           sm: 'row',
         }}
       >
-        <Button size='xl' onClick={vehicleCheckIn(plateNumber)}>
+        <Button
+          size='xl'
+          onClick={vehicleCheckIn(plateNumber, () => {
+            setPlateNumber('');
+          })}
+        >
           Registra entrada
         </Button>
-        <Button size='xl' onClick={vehicleCheckOut(plateNumber)}>
+        <Button
+          size='xl'
+          onClick={vehicleCheckOut(plateNumber, () => {
+            setPlateNumber('');
+          })}
+        >
           Registra salida
         </Button>
       </Flex>
