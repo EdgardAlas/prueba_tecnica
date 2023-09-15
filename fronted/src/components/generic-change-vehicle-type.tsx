@@ -86,7 +86,17 @@ export const GenericChangeVehicleType = ({
 
   return (
     <Flex direction={'column'} gap={'2rem'}>
-      <Flex align={'end'} gap={'sm'}>
+      <Flex
+        align={{
+          base: 'stretch',
+          md: 'end',
+        }}
+        gap={'sm'}
+        direction={{
+          base: 'column',
+          md: 'row',
+        }}
+      >
         <TextInput
           label={'Placa'}
           sx={{
@@ -100,7 +110,7 @@ export const GenericChangeVehicleType = ({
 
         <Flex gap={'lg'} justify={'center'}>
           <Button size='xl' onClick={setOficialVehicle}>
-            Dar de alta vehiculo {vehicleType?.toLocaleLowerCase()}
+            Alta vehiculo {vehicleType?.toLocaleLowerCase()}
           </Button>
         </Flex>
       </Flex>

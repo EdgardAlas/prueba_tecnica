@@ -22,7 +22,14 @@ export const PlateNumberForm = () => {
         onChange={handlePlateNumberChange}
       />
 
-      <Flex gap={'lg'} justify={'center'}>
+      <Flex
+        gap={'lg'}
+        justify={'center'}
+        direction={{
+          base: 'column',
+          sm: 'row',
+        }}
+      >
         <Button size='xl' onClick={vehicleCheckIn(plateNumber)}>
           Registra entrada
         </Button>

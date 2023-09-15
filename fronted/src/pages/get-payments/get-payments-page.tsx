@@ -27,7 +27,17 @@ export const GetPaymentsPage = () => {
 
   return (
     <div>
-      <Flex align={'end'} gap={'xl'}>
+      <Flex
+        align={{
+          base: 'stretch',
+          md: 'end',
+        }}
+        gap={'xl'}
+        direction={{
+          base: 'column',
+          md: 'row',
+        }}
+      >
         <Select
           size='xl'
           data={vehicleTypes}
