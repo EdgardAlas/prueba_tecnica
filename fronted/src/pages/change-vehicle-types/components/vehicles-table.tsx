@@ -1,5 +1,5 @@
 import { Pagination, Table, Text } from '@mantine/core';
-import { useGetAllVehicles } from '../hooks/useGetAllVehicles';
+import { useGetAllVehicles } from '../hooks/use-get-all-vehicles';
 import { useEffect } from 'react';
 
 export const Vehicles = () => {

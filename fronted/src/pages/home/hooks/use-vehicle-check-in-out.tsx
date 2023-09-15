@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { api } from '../../../config/api';
 import { notifications } from '@mantine/notifications';
-import { useVehicleEntries } from './useVehicleEntries';
+import { useVehicleEntries } from './use-vehicle-entries';
 import { modals } from '@mantine/modals';
 import { CheckOutResponse } from '../../../types/vehicle-entries.types';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useChangeVehicleTypesContext } from './useChangeVehicleTypesContext';
+import { useChangeVehicleTypesContext } from './use-change-vehicle-types-context';
 import { api } from '../../../config/api';
 
 export const useGetAllVehicles = () => {

@@ -1,6 +1,6 @@
 import { notifications } from '@mantine/notifications';
 import { api } from '../../../config/api';
-import { useGetAllVehicles } from './useGetAllVehicles';
+import { useGetAllVehicles } from './use-get-all-vehicles';
 import { useState } from 'react';
 
 export const useChangeVehicleType = () => {

@@ -1,8 +1,8 @@
 import { notifications } from '@mantine/notifications';
 import { api } from '../../../config/api';
 import { VehicleTypes } from '../../../types/vehicles-types.types';
-import { useGetAllVehicleTypes } from './useGetAllVehicleTypes';
-import { useVehicleTypesContext } from './useVehicleTypesContext';
+import { useGetAllVehicleTypes } from './use-get-all-vehicle-types';
+import { useVehicleTypesContext } from './use-vehicle-types-context';
 
 export const useVehicleTypesActions = () => {
   const { getAllVehicleTypes } = useGetAllVehicleTypes();

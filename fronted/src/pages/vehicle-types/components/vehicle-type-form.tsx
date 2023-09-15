@@ -12,8 +12,8 @@ import { useEffect } from 'react';
 import { FaDollarSign } from 'react-icons/fa';
 import { z } from 'zod';
 import { VehicleTypes } from '../../../types/vehicles-types.types';
-import { useVehicleTypesActions } from '../hooks/useVehicleTypesActions';
-import { useVehicleTypesContext } from '../hooks/useVehicleTypesContext';
+import { useVehicleTypesActions } from '../hooks/use-vehicle-types-actions';
+import { useVehicleTypesContext } from '../hooks/use-vehicle-types-context';
 
 export const VehicleTypeForm = () => {
   const { vehiclesType } = useVehicleTypesContext();

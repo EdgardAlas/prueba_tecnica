@@ -4,11 +4,11 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom';
 import { Layout } from '../components/layout/layout';
-import { AddOficialVehiclespage } from '../pages/add-oficial-vehicles/AddOficialVehiclespage';
+import { AddOficialVehiclespage } from '../pages/add-oficial-vehicles/add-oficial-vehicles-page';
 import { ChangeVehicleTypesPage } from '../pages/change-vehicle-types/change-vehicle-types';
-import { HomePage } from '../pages/home/HomePage';
+import { HomePage } from '../pages/home/home-page';
 import { NotFoundPage } from '../pages/not-found';
-import { AddResidentialVehiclesPage } from '../pages/residential/AddResidentialVehiclesPage';
+import { AddResidentialVehiclesPage } from '../pages/residential/add-residential-vehicles-page';
 import { GetPaymentsPage } from '../pages/get-payments/get-payments-page';
 import { StartMonthPage } from '../pages/start-month/start-month-page';
 import { VehicleTypesPage } from '../pages/vehicle-types/vehicle-types-page';

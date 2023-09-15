@@ -1,7 +1,7 @@
 import { Flex } from '@mantine/core';
-import { ParkedVehicles } from './components/ParkedVehicles';
+import { ParkedVehicles } from './components/parked-vehicles';
 import { PlateNumberForm } from './components/PlateNumberForm';
-import { HomeContextProvider } from './context/HomePageContext.context';
+import { HomeContextProvider } from './context/home-page.context';
 
 export const HomePage = () => {
   return (

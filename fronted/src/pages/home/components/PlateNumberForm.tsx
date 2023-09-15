@@ -1,6 +1,6 @@
 import { Button, Flex, TextInput } from '@mantine/core';
 import { useState } from 'react';
-import { useVehicleCheckInOut } from '../hooks/useVehicleCheckInOut';
+import { useVehicleCheckInOut } from '../hooks/use-vehicle-check-in-out';
 
 export const PlateNumberForm = () => {
   const { vehicleCheckIn, vehicleCheckOut } = useVehicleCheckInOut();

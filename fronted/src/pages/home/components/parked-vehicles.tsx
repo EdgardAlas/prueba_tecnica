@@ -1,7 +1,7 @@
 import { Pagination, Table, Text } from '@mantine/core';
 import { useEffect } from 'react';
 import { formatDate } from '../../../helpers/format-date';
-import { useVehicleEntries } from '../hooks/useVehicleEntries';
+import { useVehicleEntries } from '../hooks/use-vehicle-entries';
 
 export const ParkedVehicles = () => {
   const { vehicleEntries, getAllEntries, loading } = useVehicleEntries();

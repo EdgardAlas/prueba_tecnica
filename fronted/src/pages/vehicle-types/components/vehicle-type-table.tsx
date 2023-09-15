@@ -1,9 +1,9 @@
 import { Button, Flex, Pagination, Table, Text } from '@mantine/core';
 import { useEffect } from 'react';
 import { moneyFormat } from '../../../helpers/money-format';
-import { useGetAllVehicleTypes } from '../hooks/useGetAllVehicleTypes';
-import { useVehicleTypesActions } from '../hooks/useVehicleTypesActions';
-import { useVehicleTypesContext } from '../hooks/useVehicleTypesContext';
+import { useGetAllVehicleTypes } from '../hooks/use-get-all-vehicle-types';
+import { useVehicleTypesActions } from '../hooks/use-vehicle-types-actions';
+import { useVehicleTypesContext } from '../hooks/use-vehicle-types-context';
 
 export const VehicleTypesTable = () => {
   const { getAllVehicleTypes, loading, vehiclesTypes } =

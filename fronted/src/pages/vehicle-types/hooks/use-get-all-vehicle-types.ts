@@ -1,6 +1,6 @@
 import React from 'react';
 import { api } from '../../../config/api';
-import { useVehicleTypesContext } from './useVehicleTypesContext';
+import { useVehicleTypesContext } from './use-vehicle-types-context';
 
 export const useGetAllVehicleTypes = () => {
   const [loading, setLoading] = React.useState(false);

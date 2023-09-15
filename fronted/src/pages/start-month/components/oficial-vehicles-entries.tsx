@@ -1,7 +1,7 @@
 import { Pagination, Table, Text } from '@mantine/core';
 import { useEffect } from 'react';
 import { formatDate } from '../../../helpers/format-date';
-import { useGetOficialEntries } from '../hooks/useGetOficialEntries';
+import { useGetOficialEntries } from '../hooks/use-get-oficial-entries-tsx';
 
 export const OficialVehicleEntries = () => {
   const { data, getAllOficialEntries, loading } = useGetOficialEntries();

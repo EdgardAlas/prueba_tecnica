@@ -2,7 +2,7 @@ import { Button, Flex, Grid, Select, TextInput } from '@mantine/core';
 import { useForm, zodResolver } from '@mantine/form';
 import { useEffect, useState } from 'react';
 import { api } from '../../../config/api';
-import { useChangeVehicleType } from '../hooks/useChangeVehicleType';
+import { useChangeVehicleType } from '../hooks/use-change-vehicle-type';
 import { z } from 'zod';
 
 export const ChangeVehicleTypeForm = () => {
